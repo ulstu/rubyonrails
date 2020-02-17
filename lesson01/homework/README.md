@@ -15,4 +15,5 @@
 1. https://habr.com/ru/post/110012/ - Основы Linux от основателя Gentoo. Часть 3 (3/4): Управление аккаунтами в Linux
 1. https://habr.com/ru/post/110697/ - Основы Linux от основателя Gentoo. Часть 3 (4/4): Настройка пользовательского окружения
 
-* Пройти курс - https://ru.hexlet.io/courses/cli-basics
+### * Пройти курс
+https://ru.hexlet.io/courses/cli-basics
