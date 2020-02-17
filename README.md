@@ -1,3 +1,5 @@
+![Ростелеком Информационные Технологии](https://github.com/ulstu/rubyonails/raw/master/rtk_it_logo.png)
+
 # Оглавление курса "Разработка на Ruby on Rails"
 
 ### Урок 1: Работа с командной строкой.
