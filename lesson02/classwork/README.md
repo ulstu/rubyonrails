@@ -7,6 +7,7 @@
 1. https://www.vim.org/ - Vim. Бесплатный текстовый редактор. Поддерживает плагины. https://habr.com/ru/post/68013/ - VIM как Rails IDE.
 1. https://www.sublimetext.com/ - Sublime. Платный текстовый редактор. https://www.sublimetext.com/3 - текущая версия.
 1. https://www.gnu.org/software/emacs/ - Emacs. Бесплатный текстовый редактор.
+1. https://code.visualstudio.com/ - VsCode. Бесплатный опенсорсный текстовый редактор для любой платформы.
 ### Git
 1. https://git-scm.com/book/ru/v2 - Книга "Pro Git"
 1. https://habr.com/ru/post/106912/ - Удачная модель ветвления Git
