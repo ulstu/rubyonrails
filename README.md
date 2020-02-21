@@ -13,3 +13,5 @@
 1. Слепой метод печати.
 1. IDE разработчика: RubyMine, Vim и другие.
 1. Git. Git Flow.
+hop hei lalalei
+lskdjflskhg
