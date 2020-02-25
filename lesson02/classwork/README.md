@@ -13,3 +13,6 @@
 1. https://habr.com/ru/post/106912/ - Удачная модель ветвления Git
 1. https://danielkummer.github.io/git-flow-cheatsheet/index.ru_RU.html - Шпаргалка по git flow
 1. Fork и Merge requests.
+1. Псевдонимы в Git - https://git-scm.com/book/ru/v2/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-Git-%D0%9F%D1%81%D0%B5%D0%B2%D0%B4%D0%BE%D0%BD%D0%B8%D0%BC%D1%8B-%D0%B2-Git
+1. Доступ по ssh - https://github.com/rsajob/docs/wiki/%5Bgit%5D-%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF-%D0%BF%D0%BE-ssh
+1. Объединение коммитов в Git - https://docs.google.com/document/d/1yjz_WMKwzoLUjmhpKMRmSvZvG0ZlaLpCxD9fKcehu7E/edit
