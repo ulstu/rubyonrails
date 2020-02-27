@@ -16,4 +16,4 @@
 1. https://habr.com/ru/post/110697/ - Основы Linux от основателя Gentoo. Часть 3 (4/4): Настройка пользовательского окружения
 
 ### * Пройти курс
-https://ru.hexlet.io/courses/cli-basics
+https://ru.hexlet.io/courses/cli-basics - Основы командной строки
