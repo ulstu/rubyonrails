@@ -2,5 +2,5 @@
 
 ### Пройти курс https://ru.hexlet.io/courses/ruby - Введение в Ruby
 
-### * Пройти курсы
+### * Пройти курс
 https://ru.hexlet.io/courses/introduction_to_programming - Введение в программирование
