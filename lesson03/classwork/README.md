@@ -8,3 +8,5 @@
 ### Литература
 1. https://ruby-doc.org/ - Документация по Ruby (классы, методы и т.д.).
 1. https://www.ruby-lang.org/ru/documentation/ruby-from-other-languages/ - в Ruby из других языков.
+1. Книга "Программирование на языке Ruby"(The Ruby Way) Хэл Фултон
+1. Книга "Путь Ruby" Фултон Хэл, Арко Андре - https://www.ozon.ru/context/detail/id/33512246/
