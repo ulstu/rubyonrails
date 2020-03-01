@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/convertor:cached
+      - ~/.bash_history:/root/.bash_history
+      - bundle_cache:/bundle_cache
+    environment:
+      - BUNDLE_PATH=/bundle_cache
+      - GEM_HOME=/bundle_cache
+      - GEM_PATH=/bundle_cache
+  bundle_cache:
+    image: busybox
+    volumes:
+      - bundle_cache:/bundle_cache
+
+volumes:
+  bundle_cache:
