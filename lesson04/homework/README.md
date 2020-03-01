@@ -22,4 +22,4 @@ $ converter --output-format=atom --input=https://lenta.ru/rss
 1. Программа должна быть написана с использованием ООП.
 1. К проекту должен быть подключен gem rubocop.
 1. Сдавать программу в виде pull request к репозиторию https://github.com/ulstu/rubyonrails.
-1*. Написать тесты на функционал программы, используя гем minitest.
+1.* Написать тесты на функционал программы, используя гем minitest.
