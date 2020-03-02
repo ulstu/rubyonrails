@@ -20,7 +20,7 @@ class Rss_element
         def initialize (guid, title,links, description,pubDate,enclosure,category)
     @guid = guid
     @title = title
-    input @links = links 
+    @links = links 
     @description = description 
     @pubDate = pubDate
     @enclosure = enclosure
