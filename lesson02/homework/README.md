@@ -6,4 +6,4 @@
 Срок выполнения - 9 марта.
 
 ### * Пройти курс
-https://ru.hexlet.io/courses/intro_to_git
+https://ru.hexlet.io/courses/intro_to_git - Системы контроля версий (GIT)
