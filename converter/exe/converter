@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "converter"
+require "optparse"
+
+options = {}
+
+gem_spec = Gem::Specification::load("converter.gemspec")
+
+parser = OptionParser.new do |opt|
+  opt.banner = "Usage #{gem_spec.name} [options]"
+  opt.define_head gem_spec.summary
+
+  opt.separator ""
+
+  opt.on("-i", "--input [url]", String) do |input|
+  	options[:input] = input
+  end
+  opt.on("-o", "--output-format [rss | json | atom]", String) do |output|
+  	options[:output] = output
+  end
+  opt.on("-s", "--sort [asc | desc]", String) do |sort|
+  	options[:sort] = sort
+  end
+  opt.on("-f", "--file-name [string]", String) do |file|
+  	options[:file] = file
+  end
+
+  opt.separator ""
+
+  opt.on("-h", "--help", "Show this message") do |help|
+    puts opt
+    exit
+  end
+end
+
+begin
+  parser.parse! 
+  puts "The result is %s" % Converter.convert(options)
+
+rescue OptionParser::InvalidArgument => e 
+  STDERR.puts %Q[#{e.message.capitalize}. Run "#{File.basename($0)}" --help for details.]
+  exit 1
+rescue KeyError
+  STDERR.puts %Q[Insufficient arguments. Run "#{File.basename($0)}" --help for details.]
+  exit 2
+end
+
