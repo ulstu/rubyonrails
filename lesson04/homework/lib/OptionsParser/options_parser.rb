@@ -8,7 +8,8 @@ module OptionsParser
   def self.parse
     OptionParser.new do |opts|
       option_parse(opts, 'input', '-iINPUT', '--input', 'A link or file')
-      option_parse(opts, 'output', '-oOUTPUT', '--output-format', 'Output format (RSS, ATOM, JSON)')
+      option_parse(opts, 'output', '-oOUTPUT', '--output-format',
+                   'Output format (RSS, ATOM, JSON)')
       option_parse(opts, 'sort', '-sSORT', '--sort', 'Sorted by')
     end.parse!
     @options
