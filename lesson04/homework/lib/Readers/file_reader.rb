@@ -3,6 +3,6 @@
 # Module for reading from file
 module FileReader
   def self.read(file)
-    File.open(file)
+    File.read(file)
   end
 end
