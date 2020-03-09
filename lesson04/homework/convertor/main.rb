@@ -1,3 +1,9 @@
+require 'bundler/setup'
+Bundler.require
+require 'nokogiri'
+require 'open-uri'
+require 'rubocop'
+require 'json'
 require 'require_all'
 require_all 'lib'
 
@@ -13,7 +19,7 @@ class Main
 
     parsed_data = RssParser.parse(data)
 
-    puts parsed_data
+    puts parsed_data[0].to_json
 
   end
 
@@ -53,3 +59,9 @@ class Main
     format
   end
 end
+
+
+options = {input: "http://lenta.ru/rss", 'output-format': 'json', sort: 'asc'}
+
+main_program = Main.new(options)
+main_program.run
