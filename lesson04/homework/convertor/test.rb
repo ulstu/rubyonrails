@@ -6,19 +6,16 @@ require 'rubocop'
 require 'json'
 
 xml_doc = Nokogiri::XML(open('https://lenta.ru/rss'))
+data = [];
+#Разбор элементов внутри item
 doc = xml_doc.xpath("//item") 
-
-obj = Hash.new
-i = 0
 doc.each do |item|
-  obj2 = Hash.new
+  obj = {};
   item.children.each do |child|
-    obj2[child.name] = child.content
+    obj[child.name] = child.content.chomp
   end
-  obj[i] = obj2
-  i += 1
+  data << obj
 end
 #children[1].content #текст
 #puts doc[0].children[1].name #key
-tre = obj.to_json
-puts obj[0].to_json
+puts data[0].to_json
