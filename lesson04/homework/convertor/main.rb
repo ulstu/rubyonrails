@@ -1,10 +1,3 @@
-require 'bundler/setup'
-Bundler.require
-require 'nokogiri'
-require 'open-uri'
-require 'rubocop'
-require 'json'
-require 'require_all'
 require_all 'lib'
 
 class Main
@@ -59,9 +52,3 @@ class Main
     format
   end
 end
-
-
-options = {input: "http://lenta.ru/rss", 'output-format': 'json', sort: 'asc'}
-
-main_program = Main.new(options)
-main_program.run
