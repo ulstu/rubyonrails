@@ -25,5 +25,6 @@ module RssParser
       end
       data << obj
     end
+    data
   end
 end

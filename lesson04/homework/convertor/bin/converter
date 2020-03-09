@@ -1,0 +1,7 @@
+options = {}
+#options = OptionParser.new
+
+options = {input: "http://lenta.ru/rss", 'output-format': 'json', sort: 'asc'}
+
+main_program = Main.new(options)
+main_program.run

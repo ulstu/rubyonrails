@@ -9,6 +9,15 @@ class Main
   end
 
   def run
+    data = "http://lenta.ru/rss"
+
+    parsed_data = RssParser.parse(data)
+
+    puts parsed_data
+
+  end
+
+  def run_old
     data = if @input == 'link'
              "http://lenta.ru/rss"
              "/home/user/file.txt"

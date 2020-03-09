@@ -5,6 +5,4 @@ ruby '2.7.0'
 
 gem 'rubocop', '~> 0.80.1', require: false
 gem 'nokogiri'
-
-
-# gem "rails"
+gem 'require_all'
