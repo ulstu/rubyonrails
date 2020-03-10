@@ -12,6 +12,8 @@ GEM
     rainbow (3.0.0)
     require_all (3.0.0)
     rexml (3.2.4)
+    rss (0.2.9)
+      rexml
     rubocop (0.80.1)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -29,6 +31,7 @@ PLATFORMS
 DEPENDENCIES
   nokogiri (= 1.10.8)
   require_all
+  rss (~> 0.2.9)
   rubocop (~> 0.80.0)
 
 BUNDLED WITH
