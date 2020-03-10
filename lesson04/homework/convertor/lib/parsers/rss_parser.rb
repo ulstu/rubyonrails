@@ -14,7 +14,7 @@ module RssParser
   end
 
   def self.parse(data)
-    xml_doc = Nokogiri::XML(open('https://lenta.ru/rss'))
+    xml_doc = Nokogiri::XML(open(data))
     data = [];
     #Разбор элементов внутри item
     doc = xml_doc.xpath("//item") 
