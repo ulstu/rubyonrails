@@ -16,6 +16,9 @@ class Main
              LinkReader.read(@input)
            elsif File.file?(@input)
              FileReader.read(@input)
+           else
+             puts 'ERROR: Not found file'
+             exit
            end
 
     input_format = 'rss'

@@ -2,6 +2,6 @@ require 'open-uri'
 
 module LinkReader
   def self.read(input)
-    link = open(input)
+    open(input)
   end
 end
