@@ -1,5 +1,3 @@
-require 'open-uri'
-
 module LinkReader
   def self.read(input)
     data = ''

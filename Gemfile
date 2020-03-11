@@ -2,7 +2,7 @@
 
 gem "nokogiri", "1.10.8"
 
-gem 'require_all'
+gem 'require_all', "3.0.0"
 
 gem 'rss', '~> 0.2.9'
 

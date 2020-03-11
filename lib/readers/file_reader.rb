@@ -1,5 +1,3 @@
-require 'open-uri'
-
 module FileReader
   def self.read(input)
     data = ''

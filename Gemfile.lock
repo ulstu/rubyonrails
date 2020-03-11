@@ -30,7 +30,7 @@ PLATFORMS
 
 DEPENDENCIES
   nokogiri (= 1.10.8)
-  require_all
+  require_all (= 3.0.0)
   rss (~> 0.2.9)
   rubocop (~> 0.80.0)
 
