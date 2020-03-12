@@ -23,11 +23,11 @@ class Main
 
     input_format = GetInputFormat.get_format(data)
     parsed_data = if input_format == 'rss'
-                    RssParser.pars(data)
+                    RssParser.parse(data)
                   elsif input_format == 'json'
-                    JsonParser.pars(data)
+                    JsonParser.parse(data)
                   elsif input_format == 'atom'
-                    AtomParser.pars(data)
+                    AtomParser.parse(data)
                   end
     # # parsed_data = if @sort == 'asc'
     # #                 AscSorter.sort(parsed_data)

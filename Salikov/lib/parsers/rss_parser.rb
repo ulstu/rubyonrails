@@ -1,7 +1,7 @@
 require 'nokogiri'
 
 module RssParser
-  def self.pars(data)
+  def self.parse(data)
     doc = Nokogiri::XML(data)
     
     feed_inf = parse_feed(doc)
