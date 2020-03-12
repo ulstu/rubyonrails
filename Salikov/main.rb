@@ -21,7 +21,7 @@ class Main
              exit
            end
 
-    input_format = GetInputFormat.get_format(data)
+    input_format = InputFormat.format(data)
     parsed_data = if input_format == 'rss'
                     RssParser.parse(data)
                   elsif input_format == 'json'
@@ -29,6 +29,7 @@ class Main
                   elsif input_format == 'atom'
                     AtomParser.parse(data)
                   end
+                puts parsed_data[:item][0]
     # # parsed_data = if @sort == 'asc'
     # #                 AscSorter.sort(parsed_data)
     # #               else

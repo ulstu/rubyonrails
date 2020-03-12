@@ -1,5 +1,5 @@
-module GetInputFormat
-  def self.get_format(data)
+module InputFormat
+  def self.format(data)
     format = ''
     if data.include?('<channel>')
       format = 'rss'

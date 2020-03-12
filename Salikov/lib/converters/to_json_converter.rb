@@ -1,6 +1,6 @@
 require 'json'
 
-module ToJsonConvert
+module JsonConvert
   def self.convert(data, url_file)
     name_file = url_file.split('/')
     name_file = name_file[-1].split('.')

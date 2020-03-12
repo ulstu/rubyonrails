@@ -2,8 +2,8 @@ require 'optparse'
 require 'ostruct'
 require 'uri'
 
-module GetOptions
-  def self.get
+module OptionsParser
+  def self.options
     options = {}
     parser = OptionParser.new do |opt|
       opt.banner = 'Usage converter.rb [options]'
