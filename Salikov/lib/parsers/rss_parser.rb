@@ -1,17 +1,16 @@
 require 'nokogiri'
 
 module RssParser
-  def self.parse(data)
+  def self.pars(data)
     doc = Nokogiri::XML(data)
     
-    feed = parse_feed(doc)
+    feed_inf = parse_feed(doc)
     items = parse_items(doc)
-    result = {feed: feed,
-              items: items}
+    result = {feed: feed_inf,
+              item: items}
   end
 
   def self.parse_feed(doc)
-    feed_result = []
     f_language = doc.at_css('channel language').text.strip
     f_title = doc.at_css('channel title').text.strip
     f_description = doc.at_css('channel description').text.strip
@@ -21,13 +20,13 @@ module RssParser
                'link' => doc.css('channel image link').text.strip
               }
 
-    feed_result.push(
+    feed_result = {
       language: f_language,
       title: f_title,
       description: f_description,
       link: f_link,
       image: f_image
-    )
+    }
   end
 
   def self.parse_items(doc)

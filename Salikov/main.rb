@@ -21,29 +21,26 @@ class Main
              exit
            end
 
-    input_format = 'rss'
-
+    input_format = GetInputFormat.get_format(data)
     parsed_data = if input_format == 'rss'
-                    RssParser.parse(data)
+                    RssParser.pars(data)
                   elsif input_format == 'json'
-                    JsonParser.parse(data)
+                    JsonParser.pars(data)
                   elsif input_format == 'atom'
-                    AtomParser.parse(data)
+                    AtomParser.pars(data)
                   end
-
-    # parsed_data = if @sort == 'asc'
-    #                 AscSorter.sort(parsed_data)
-    #               else
-    #                 DescSorter.sort(parsed_data)
-    #               end
+    # # parsed_data = if @sort == 'asc'
+    # #                 AscSorter.sort(parsed_data)
+    # #               else
+    # #                 DescSorter.sort(parsed_data)
+    # #               end
     
-    
-    if @output_format == 'json'
-      ToJsonConvert.convert(parsed_data, input)
-    elsif @output_format == 'atom'
-      ToAtomConvert.convert(parsed_data, input)
-    elsif @output_format == 'rss'
-      ToRssConvert.convert(parsed_data, input)
-    end
+    # if @output_format == 'json'
+    #   ToJsonConvert.convert(parsed_data, input)
+    # elsif @output_format == 'atom'
+    #   ToAtomConvert.convert(parsed_data, input)
+    # elsif @output_format == 'rss'
+    #   ToRssConvert.convert(parsed_data, input)
+    # end
   end
 end

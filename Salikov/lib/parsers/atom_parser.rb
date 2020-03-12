@@ -1,5 +1,5 @@
 module AtomParser
-  def self.parse(data)
+  def self.pars(data)
     puts 'AtomParser'
-  end  
+  end
 end

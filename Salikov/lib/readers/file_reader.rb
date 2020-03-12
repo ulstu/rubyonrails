@@ -1,5 +1,5 @@
 module FileReader
   def self.read(input)
-    File.open(input)
+    File.read(input)
   end
 end
