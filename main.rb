@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'require_all'
+require_all '../lib'
+
 class Main
   def initialize(options)
     @input = options[:input]
@@ -14,7 +17,3 @@ class Main
     convert_data.convert(parsed_data)
   end
 end
-
-# 'https://lenta.ru/rss'
-# 'https://rss.dw.com/atom/rss-ru-news'
-# './test/fixtures/file1.txt'

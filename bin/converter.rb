@@ -7,8 +7,6 @@ require '../main'
 require 'open-uri'
 require 'nokogiri'
 require 'json'
-require 'require_all'
-require_all '../lib'
 
 options = {}
 OptionParser.new do |parser|
