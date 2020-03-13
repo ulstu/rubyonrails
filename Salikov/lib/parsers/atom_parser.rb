@@ -57,10 +57,6 @@ module AtomParser
   end
 
   def self.can_parse?(data)
-    format = if data.include?('<feed')
-      true
-    else
-      false
-    end
+    data.include?('<feed')
   end
 end

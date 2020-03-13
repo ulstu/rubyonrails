@@ -8,10 +8,6 @@ module JsonParser
   end
 
   def self.can_parse?(data)
-    format = if data.include?('\"items\"')
-      true
-    else
-      false
-    end
+    data.include?('\"items\"')
   end
 end

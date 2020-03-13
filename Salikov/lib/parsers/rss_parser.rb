@@ -53,10 +53,6 @@ module RssParser
   end
 
   def self.can_parse?(data)
-    format = if data.include?('<channel>')
-               true
-             else
-               false
-             end
+    data.include?('<channel>')
   end
 end
