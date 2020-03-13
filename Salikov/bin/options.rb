@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'optparse'
 require 'ostruct'
 require 'uri'
@@ -21,7 +23,7 @@ module OptionsParser
 
       opt.separator ''
 
-      opt.on('-h', '--help', 'Show this message') do |help|
+      opt.on('-h', '--help', 'Show this message') do |_help|
         puts opt
         exit
       end

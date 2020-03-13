@@ -1,7 +1,8 @@
-require '../lib/options/get_options.rb'
+# frozen_string_literal: true
+
+require './options.rb'
 require '../main.rb'
 
-options = {}
 options = OptionsParser.options
 
 main_programm = Main.new(options)
