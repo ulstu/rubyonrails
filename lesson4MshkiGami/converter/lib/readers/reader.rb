@@ -2,7 +2,6 @@ require 'open-uri'
 
 # this class read from link
 class Reader
-  attr_accessor :input
   def initialize(input)
     @input = input
   end

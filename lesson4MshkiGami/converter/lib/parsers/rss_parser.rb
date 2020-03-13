@@ -3,14 +3,14 @@ require 'json'
 require '/home/mishigami/Desktop/RubyROSTELE/rubyonrails/lesson4MshkiGami/converter/lib/readers/reader.rb'
 # parse from string
 class RssParse
-  attr_accessor :data
   def initialize(data)
     @data = data
   end
-    def parse
-      xmlfeed = Nokogiri::XML(data)
-      doc = xmlfeed.xpath('//item')
-      result = []
+
+  def parse
+    xmlfeed = Nokogiri::XML(data)
+    doc = xmlfeed.xpath('//item')
+    result = []
       doc.each do |el|
         result << {
           guid: el.at('guid').text,
@@ -23,7 +23,7 @@ class RssParse
               }
       end
     result
-    end
+  end
 end
 
 # test

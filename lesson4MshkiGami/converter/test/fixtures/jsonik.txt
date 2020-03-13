@@ -1,4 +1,4 @@
-   {
+   [{
       "guid": "https://lenta.ru/news/2020/03/05/okkosport/",
       "title": "Okko Спорт покажет финал Лиги Наций КОНКАКАФ и отборочный турнир к ЧМ в Катаре",
       "links": "https://lenta.ru/news/2020/03/05/okkosport/",
@@ -15,4 +15,4 @@
       "pubDate": "Thu, 05 Mar 2020 16:56:25 +0300",
       "enclosure": "",
       "category": "Наука и техника"
-    }
+    }]

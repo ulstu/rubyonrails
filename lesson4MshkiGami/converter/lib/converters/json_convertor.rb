@@ -4,14 +4,13 @@ require 'require_all'
 require '/home/mishigami/Desktop/RubyROSTELE/rubyonrails/lesson4MshkiGami/converter/lib/readers/reader.rb'
 require '/home/mishigami/Desktop/RubyROSTELE/rubyonrails/lesson4MshkiGami/converter/lib/parsers/rss_parser.rb'
 
-# Convert from data to JSON
-class ConvertToJSON
-  attr_accessor :convert_data
+# Convert JSON
+class JsonConvertor
   def initialize(convert_data)
     @convert_data = convert_data
   end
 
-  def data_to_json
+  def convert
     JSON.pretty_generate(convert_data)
   end
 end

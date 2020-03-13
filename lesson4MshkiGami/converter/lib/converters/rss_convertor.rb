@@ -4,13 +4,12 @@ require 'require_all'
 require '/home/mishigami/Desktop/RubyROSTELE/rubyonrails/lesson4MshkiGami/converter/lib/readers/reader.rb'
 require '/home/mishigami/Desktop/RubyROSTELE/rubyonrails/lesson4MshkiGami/converter/lib/parsers/rss_parser.rb'
 
-class ConvertToRSS
-  attr_accessor :convert_data
+class RssConvertor
   def initialize(convert_data)
     @convert_data = convert_data
   end
 
-  def convert_to_rss
+  def convert
     result_rss = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n"
     convert_data.each do |el|
