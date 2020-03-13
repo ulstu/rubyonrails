@@ -1,6 +1,8 @@
-require "rake/testtask"
+# frozen_string_literal: true
 
-task default: "test"
+require 'rake/testtask'
+
+task default: 'test'
 Rake::TestTask.new do |task|
- task.pattern = "test/parsers/*_test.rb"
+  task.pattern = 'test/**/*_test.rb'
 end

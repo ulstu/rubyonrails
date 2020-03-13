@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RssConverter
   def self.convert(data)
     result_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n"
@@ -11,9 +13,9 @@ module RssConverter
       result_xml += "<enclosure> #{item[:enclosure]} </enclosure>\n"
       result_xml += "<category> #{item[:category]} </category>\n"
       result_xml += "</item>\n"
-      end
-    result_xml += "</rss>"
-    File.open("../test/fixtures/file1", "w") do |file| 
+    end
+    puts result_xml += '</rss>'
+    File.open('../test/fixtures/file1.rss', 'w') do |file|
       file.puts result_xml
     end
   end

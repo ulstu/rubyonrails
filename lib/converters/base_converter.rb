@@ -1,7 +1,10 @@
-class Converter
+# frozen_string_literal: true
+
+class BaseConverter
   def initialize(output)
     @output = output
   end
+
   def convert(parsed_data)
     if @output == 'json'
       JsonConverter.convert(parsed_data)

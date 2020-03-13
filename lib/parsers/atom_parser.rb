@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module AtomParser
   def self.parse(data)
-  result = []
+    result = []
 
     doc = Nokogiri::XML(data)
     doc.remove_namespaces!
-    doc.xpath("//entry").each do |item|
+    doc.xpath('//entry').each do |item|
       result << {
         id: item.at('id').text,
         title: item.at('title').text,
@@ -15,8 +17,7 @@ module AtomParser
         summary: item.at('summary').text,
         category: item.at('category').text
       }
-     end
-     return result
+    end
+    result
    end
-end   
-  
+end

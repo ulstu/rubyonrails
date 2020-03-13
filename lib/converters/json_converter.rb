@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module JsonConverter
   def self.convert(data)
-    result = puts JSON.pretty_generate(data)
-    File.open("./test/fixtures/file1", "w") do |file| 
+    puts result = JSON.pretty_generate(data)
+    File.open('../test/fixtures/file.json', 'w') do |file|
       file.puts result
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Main
   def initialize(options)
     @input = options[:input]
@@ -6,14 +8,13 @@ class Main
   end
 
   def run
-    data = Reader.read(@input)
-    parsed_data = Parser.parse(data)
-    convert_data = Converter.new(@output)
+    data = BaseReader.read(@input)
+    parsed_data = BaseParser.parse(data)
+    convert_data = BaseConverter.new(@output)
     convert_data.convert(parsed_data)
   end
 end
 
-
-#'https://lenta.ru/rss'
-#'https://rss.dw.com/atom/rss-ru-news'
-#'./test/fixtures/file1.txt'
+# 'https://lenta.ru/rss'
+# 'https://rss.dw.com/atom/rss-ru-news'
+# './test/fixtures/file1.txt'

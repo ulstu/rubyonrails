@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module LinkReader
   def self.read(input)
     data = ''
     file_contents = open(input)
     file_contents.each do |line|
-    data += line
+      data += line
     end
-    return data
+    data
   end
 end

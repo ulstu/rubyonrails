@@ -1,13 +1,20 @@
+# frozen_string_literal: true
+
 module JsonParser
   def self.parse(data)
     result = []
-    i = 0
-    JSON.parse(data) do |item|
-    result[i] = {
-      'item' => item
-    }
-  i += 1
+    puts data
+    JSON.parse(data).each do |item|
+      result << {
+        guid: item['guid'],
+        title: item['title'],
+        links: item['links'],
+        description: item['description'],
+        pubDate: item['pubDate'],
+        enclosure: item['enclosure'],
+        category: item['category']
+      }
+    end
+    result
   end
-  result
-end
 end
