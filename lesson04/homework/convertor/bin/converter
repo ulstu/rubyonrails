@@ -6,7 +6,7 @@ require_rel '../main.rb'
 options = {}
 #options = OptionParser.new
 
-options = {input: "http://lenta.ru/rss", 'output-format': 'json', sort: 'asc'}
+options = {input: "http://lenta.ru/rss", output: 'json', sort: 'asc'}
 
 main_program = Main.new(options)
 main_program.run

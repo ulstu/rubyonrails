@@ -5,21 +5,32 @@ require 'open-uri'
 require 'rubocop'
 require 'json'
 require 'require_all'
+require 'uri'
 require_all 'lib'
 
 class Main
   def initialize(options)
-    @input = options['input']
-    @ouput_format = options['ouput-format']
-    @sort = options['sort']
+    @input = options[:input]
+    @output = options[:output]
+    @sort = options[:sort]
   end
 
   def run
-    data = "http://lenta.ru/rss"
+    #data = if @input == LinkReader.read(@input)
+    #         LinkReader.read(@input)
+    #       elsif @input == "/home/user/file.txt"
+    #         FileReader.read(@input)
+    #       end
+    puts @input
+    puts @output
+    puts @sort
+    #puts LinkReader.read("http://lenta123")
+    #data = "http://lenta.ru/rss"
+    #data = "/convertor/rss"
 
-    parsed_data = RssParser.parse(data)
+    #parsed_data = RssParser.parse(data)
 
-    puts parsed_data[0].to_json
+    #puts parsed_data[0].to_json
 
   end
 
