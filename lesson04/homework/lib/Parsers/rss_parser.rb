@@ -41,4 +41,11 @@ module RssParser
     end
     items
   end
+
+  # more precise conditions are needed
+  def self.can_parse?(input)
+    return true unless (input =~ /rss version/).nil?
+
+    false
+  end
 end

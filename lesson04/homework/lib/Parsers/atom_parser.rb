@@ -55,4 +55,11 @@ module AtomParser
     end
     formated
   end
+
+  # more precise conditions are needed
+  def self.can_parse?(input)
+    return true unless (input =~ /feed/).nil?
+
+    false
+  end
 end
