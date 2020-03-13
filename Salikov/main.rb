@@ -5,13 +5,12 @@ require 'uri'
 require_all '../lib/**/*.rb'
 
 class Main
-  PARSERS = ['JsonParser', 'RssParser', 'AtomParser']
+  PARSERS = %w[JsonParser RssParser AtomParser].freeze
 
   def initialize(options)
     @input = options[:input]
     @output_format = options[:output_format]
     @sort = options[:sort]
-    @input_format = ''
   end
 
   def run
@@ -24,16 +23,9 @@ class Main
              exit
            end
 
-    @input_format = InputFormat.format(data)
-    puts @input_format
-    # parsed_data = if @input_format == 'rss'
-    #                 RssParser.parse(data)
-    #               elsif @input_format == 'json'
-    #                 JsonParser.parse(data)
-    #               elsif @input_format == 'atom'
-    #                 AtomParser.parse(data)
-    #               end
-    # puts parsed_data[:item][0]
+    @input_format = BaseParsers.format(data)
+    @parsed_data = @input_format.parse(data)
+    puts parsed_data[:item][0]
     # # parsed_data = if @sort == 'asc'
     # #                 AscSorter.sort(parsed_data)
     # #               else

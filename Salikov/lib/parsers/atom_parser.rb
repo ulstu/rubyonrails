@@ -4,9 +4,10 @@ module AtomParser
   def self.parse(data)
     doc = Nokogiri::XML(data)
 
-    # feed_inf = parse_feed(doc)
+    feed_inf = parse_feed(doc)
     items = parse_items(doc)
-    result = { item: items }
+    result = { feed: feed_inf,
+               item: items }
   end
 
   def self.parse_feed(doc)
