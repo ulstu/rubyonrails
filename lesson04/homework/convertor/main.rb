@@ -16,57 +16,10 @@ class Main
   end
 
   def run
-    #data = if @input == LinkReader.read(@input)
-    #         LinkReader.read(@input)
-    #       elsif @input == "/home/user/file.txt"
-    #         FileReader.read(@input)
-    #       end
-    puts @input
-    puts @output
-    puts @sort
-    #puts LinkReader.read("http://lenta123")
-    #data = "http://lenta.ru/rss"
-    #data = "/convertor/rss"
-
-    #parsed_data = RssParser.parse(data)
-
-    #puts parsed_data[0].to_json
-
+    data = Reader.read(@input)
+    parsed_data = RssParser.parse(data)
+    sorted_data = AscSorter.sort(parsed_data)
+    converted_data = JsonConverter.convert(sorted_data)
   end
 
-  def run_old
-    data = if @input == 'link'
-             "http://lenta.ru/rss"
-             "/home/user/file.txt"
-             LinkReader.read(@input)
-           elsif @input == 'file'
-             FileReader.read(@input)
-           end
-
-    parsed_data = if data.format == 'rss'
-                    "<xml type='Rss'>"
-                    RssParser.parse(data)
-                  elsif data.format == 'atom'
-                    AtomParser.parse(data)
-                  end
-
-    parsed_data = if @sort == 'asc'
-                    AscSorter.sort(parsed_data)
-                  else
-                    DescSorter.sort(parsed_data)
-                  end
-
-    if @output_format == 'json'
-      JsonConverter.convert(parsed_data)
-    elsif @output_format == 'atom'
-      AtomConverter.convert(parsed_data)
-    end
-  end
-
-  def data_format(data)
-    format = nil
-    "<xml type='Rss'>"
-
-    format
-  end
 end

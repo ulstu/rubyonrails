@@ -1,30 +1,20 @@
 module RssParser
-  def self.parse2(data)
-    data = []
-
-    doc = Nokogiri::XML.open(data)
-    doc.xpath("//rss/channel/item").each do |item|
-      data << {title: item["title"], description: item['description'] }
-    end
-
-    data
-    # какая-то логика
-
-    #data # [{title: 'Title', body: 'Body', 'pub_date': '10-10-2019'}, {title: 'Title 2', body: 'Body 2', 'pub_date': '11-10-2019'}]
-  end
 
   def self.parse(data)
-    xml_doc = Nokogiri::XML(open(data))
+    xml_doc = Nokogiri::XML(data)
     data = [];
-    #Разбор элементов внутри item
     doc = xml_doc.xpath("//item") 
     doc.each do |item|
-      obj = {};
-      item.children.each do |child|
-        obj[child.name] = child.content.chomp
-      end
+      obj = { 
+        guid: item.at('guid').text,
+        title: item.at('title').text,
+        description: item.at('description').text,
+        pubDate: item.at('pubDate').text,
+        category: item.at('category').text,
+      }
       data << obj
     end
+
     data
   end
 end

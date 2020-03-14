@@ -13,17 +13,7 @@
       <height>22</height>
     </image>
     <atom:link rel="self" type="application/rss+xml" href="http://lenta.ru/rss"/>
-<item>
-  <guid>https://lenta.ru/news/2020/03/10/lottery/</guid>
-  <title>Новоиспеченный миллионер едва не лишился состояния из-за невнимательности</title>
-  <link>https://lenta.ru/news/2020/03/10/lottery/</link>
-  <description>
-    <![CDATA[Канадец выиграл главный приз в лотерею, однако чуть не лишился состояния из-за невнимательности. Он месяц не замечал лежащий на столе счастливый билет со стертым защитным слоем. Счастливчик мог получать по тысяче канадских долларов каждую неделю в течение 25 лет или забрать весь куш сразу. Он предпочел второй вариант.]]>
-  </description>
-  <pubDate>Tue, 10 Mar 2020 09:04:30 +0300</pubDate>
-  <enclosure url="https://icdn.lenta.ru/images/2020/03/09/21/20200309213830911/pic_49ac256f83852637b0ce1d646655dc2d.jpg" type="image/jpeg" length="30515"/>
-  <category>Из жизни</category>
-</item>
+
 <item>
   <guid>https://lenta.ru/news/2020/03/10/siwuhan/</guid>
   <title>Си Цзиньпин впервые приехал в очаг распространения коронавируса</title>
@@ -34,6 +24,17 @@
   <pubDate>Tue, 10 Mar 2020 08:55:00 +0300</pubDate>
   <enclosure url="https://icdn.lenta.ru/images/2020/03/10/08/20200310083829171/pic_1004eb7b06c2bff5225438597ccf682f.jpg" type="image/jpeg" length="24062"/>
   <category>Мир</category>
+</item>
+<item>
+  <guid>https://lenta.ru/news/2020/03/10/lottery/</guid>
+  <title>Новоиспеченный миллионер едва не лишился состояния из-за невнимательности</title>
+  <link>https://lenta.ru/news/2020/03/10/lottery/</link>
+  <description>
+    <![CDATA[Канадец выиграл главный приз в лотерею, однако чуть не лишился состояния из-за невнимательности. Он месяц не замечал лежащий на столе счастливый билет со стертым защитным слоем. Счастливчик мог получать по тысяче канадских долларов каждую неделю в течение 25 лет или забрать весь куш сразу. Он предпочел второй вариант.]]>
+  </description>
+  <pubDate>Tue, 10 Mar 2020 09:04:30 +0300</pubDate>
+  <enclosure url="https://icdn.lenta.ru/images/2020/03/09/21/20200309213830911/pic_49ac256f83852637b0ce1d646655dc2d.jpg" type="image/jpeg" length="30515"/>
+  <category>Из жизни</category>
 </item>
 <item>
   <guid>https://lenta.ru/news/2020/03/10/rostrud/</guid>
