@@ -13,7 +13,7 @@ module AtomParser
         {
           id: item.at_css('id').content.strip,
           title: item.at_css('title').content.strip,
-          updated: item.at_css('updated').content.strip,
+          date: item.at_css('updated').content.strip,
           published: item.at_css('published').content.strip,
           rights: item.at_css('rights').content.strip,
           link: item.at_css('link').get_attribute('href').strip,

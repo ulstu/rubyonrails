@@ -15,7 +15,7 @@ module RssParser
           title: item.at_css('title').content.strip,
           link: item.at_css('link').content.strip,
           description: item.at_css('description').content.strip,
-          pubDate: item.at_css('pubDate').content.strip,
+          date: item.at_css('pubDate').content.strip,
           enclosure: item.at_css('enclosure').get_attribute('url').strip,
           category: item.at_css('category').content.strip
         }

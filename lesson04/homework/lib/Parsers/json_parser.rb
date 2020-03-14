@@ -28,6 +28,7 @@ module JsonParser
   def self.items_parse(item)
     result = {}
     item.each do |key, value|
+      key = 'date' if key.include?('pubDate') || key.include?('updated')
       result.merge!({ key.to_sym => value })
     end
     result
