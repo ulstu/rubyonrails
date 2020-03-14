@@ -1,9 +1,13 @@
 module Reader
   def self.read(input)
+    files = NameFiles.find('lib/readers/ext/*.rb')
+
     data = ''
-    open(input) { |f|
-      f.each_line {|line| data += line}
-    }
+    files.each do |nameModule| 
+      if (Module.const_get(nameModule).can? (input))
+        data = Module.const_get(nameModule).read input
+      end
+    end
     data
   end
 end
