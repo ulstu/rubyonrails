@@ -6,59 +6,30 @@ require 'nokogiri'
 module AtomParser
   def self.parse(input)
     xml_doc = Nokogiri::XML(input)
-    acc = []
-    array_of_hashes = run(acc, xml_doc.children)
-    data_hash_format(array_of_hashes)
-  end
-
-  def self.run(acc, xml)
-    nested_content = []
-    xml.children.each do |xml_child|
-      if xml_child.first_element_child.nil?
-        if xml_child.attributes != {}
-          acc.push(xml_child.name => attributes_parse(xml_child.attributes))
-        elsif xml_child.name == 'text' || xml_child.name == '#cdata-section'
-          unless xml_child.content.strip.empty?
-            nested_content.push(xml_child.parent.name => xml_child.parent.content)
-          end
-        else
-          acc.push(xml_child.name => xml_child.content)
-        end
-      else
-        acc.push(xml_child.name => run(acc, xml_child.children))
-      end
-    end
-
-    return acc if nested_content.empty?
-
-    nested_content
-  end
-
-  def self.attributes_parse(attrs)
-    result = Hash.new(0)
-    attrs.each do |att|
-      result.merge!({ '@' + att[0] => att[1].to_s })
+    xml_doc.remove_namespaces!
+    result = []
+    xml_doc.xpath('//entry').each do |item|
+      result.push(
+        {
+          id: item.at_css('id').content.strip,
+          title: item.at_css('title').content.strip,
+          updated: item.at_css('updated').content.strip,
+          published: item.at_css('published').content.strip,
+          rights: item.at_css('rights').content.strip,
+          link: item.at_css('link').get_attribute('href').strip,
+          summary: item.at_css('summary').content.strip,
+          category: item.at_css('category').get_attribute('term').strip
+        }
+      )
     end
     result
   end
 
-  def self.data_hash_format(data_hash)
-    formated = Hash.new(0)
-    data_hash.each do |hash|
-      hash.map do |key, values|
-        if formated.key?(key)
-          formated[key].push(values) if formated[key].is_a?(Array)
-        else
-          formated.merge!(key => values)
-        end
-      end
-    end
-    formated
-  end
-
-  # more precise conditions are needed
   def self.can_parse?(input)
-    return true unless (input =~ /feed/).nil?
+    unless (input =~ /feed/).nil?
+      xml_doc = Nokogiri::XML(input)
+      return true unless xml_doc.xpath('//feed/entry').nil?
+    end
 
     false
   end
