@@ -5,7 +5,7 @@
 1. http://rusrails.ru/ - Русская версия (перевод) официальных гайдов по RoR
 
 ### Прочитать статьи
-1. Что такое база данных? В частности, PostgreSQL.
+1. Что такое база данных и СУБД? СУБД на примере PostgreSQL.
 1. Что такое веб-сервер? В частности, nginx.
 1. Что такое MVC-паттерн? https://ru.hexlet.io/blog/posts/chto-takoe-mvc-rasskazyvaem-prostymi-slovami, http://design-pattern.ru/patterns/mvc.html
 
