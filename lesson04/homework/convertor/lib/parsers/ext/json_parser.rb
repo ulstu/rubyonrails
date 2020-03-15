@@ -2,6 +2,7 @@ module JsonParser
 
   def self.parse(inputData)
     data = [];
+    test123 = []
     JSON.parse(inputData).each do |item|
       data << {
         guid: item['guid'],

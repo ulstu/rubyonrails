@@ -7,9 +7,9 @@ module AtomParser
     doc = xml_doc.xpath("//entry") 
     doc.each do |item|
       obj = { 
-        id: item.at('id').text,
+        guid: item.at('id').text,
         title: item.at('title').text,
-        summary: item.at('summary').text,
+        description: item.at('summary').text,
         pubDate: item.at('published').text,
         category: item.at('category').text,
       }

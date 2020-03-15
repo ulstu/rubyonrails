@@ -20,6 +20,8 @@ class Main
     parsed_data = Parser.parse(data)
     sorted_data = @sort == 'desc' ? DescSorter.sort(parsed_data) : AscSorter.sort(parsed_data)
     converted_data = Converter.convert(sorted_data, @output)
+    #puts converted_data
+    WriteFile.write(converted_data, @output)
   end
 
 end
