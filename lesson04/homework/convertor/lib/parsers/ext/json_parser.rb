@@ -2,7 +2,15 @@ module JsonParser
 
   def self.parse(inputData)
     data = [];
-    data << JSON.parse(inputData)
+    JSON.parse(inputData).each do |item|
+      data << {
+        guid: item['guid'],
+        title: item['title'],
+        description: item['description'],
+        pubDate: item['pubDate'],
+        category: item['category']
+      }
+    end
     data
   end
 
