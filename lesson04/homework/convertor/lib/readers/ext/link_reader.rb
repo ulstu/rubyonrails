@@ -1,7 +1,7 @@
 module LinkReader
   def self.read(input)
     data = ''
-    open(input) { |f|
+    OpenURI.open_uri(input) { |f|
       f.each_line {|line| data += line}
     }
     data
