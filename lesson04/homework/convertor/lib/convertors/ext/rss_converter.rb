@@ -3,6 +3,7 @@ module RssConverter
   def self.convert(inputData)
     builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
       xml.rss(version: "2.0") {
+        xml.channel {
           inputData.each do |item|
             xml.item {
               xml.guid item[:guid]
@@ -12,6 +13,7 @@ module RssConverter
               xml.category item[:category]
             }
           end
+        }
       }
     end
     builder.to_xml
