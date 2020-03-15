@@ -18,6 +18,6 @@ module RssParser
   end
 
   def self.can?(data)
-    Nokogiri::XML(data).errors.empty?
+    Nokogiri::XML(data).errors.empty? && !data.include?('</feed>')
   end
 end
