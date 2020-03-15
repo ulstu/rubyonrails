@@ -1,10 +1,10 @@
-module RssConverter
+module AtomConverter
 
   def self.convert(inputData)
     builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
-      xml.rss(version: "2.0") {
+      xml.feed('xml:lang' => 'ru') {
           inputData.each do |item|
-            xml.item {
+            xml.entry {
               xml.guid item[:guid]
               xml.title item[:title]
               xml.description item[:description]
