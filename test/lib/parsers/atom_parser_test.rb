@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
-require 'require_all'
-require_rel '../../lib'
 require 'minitest/autorun'
-require 'minitest/pride'
-require '../../../lib/parsers/atom_parser'
+require 'nokogiri'
+require './lib/readers/file_reader'
+require './lib/parsers/atom_parser'
 
-class AtomParserTest < MiniTest
-  def test_parse_file
-    file = File.open('fixtures/file1')
+class AtomParserTest < MiniTest::Test
+  def test_parse
+    file = FileReader.read('./test/fixtures/file_test.atom')
     data = AtomParser.parse(file)
-    assert_equal 'Заголовок', data[0]['titie']
+    assert_equal 'tag:dw.com,2020:52793074', data[0][:id]
   end
 end

@@ -3,7 +3,6 @@
 module AtomParser
   def self.parse(data)
     result = []
-
     doc = Nokogiri::XML(data)
     doc.remove_namespaces!
     doc.xpath('//entry').each do |item|
@@ -19,5 +18,9 @@ module AtomParser
       }
     end
     result
-   end
+  end
+
+  def self.can_parse?(data)
+    data.include?('<feed')
+  end
 end

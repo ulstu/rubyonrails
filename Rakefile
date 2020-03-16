@@ -2,7 +2,9 @@
 
 require 'rake/testtask'
 
-task default: 'test'
-Rake::TestTask.new do |task|
-  task.pattern = 'test/**/*_test.rb'
+Rake::TestTask.new(:test) do |t|
+  t.test_files = FileList['test/lib/**/*_test.rb']
 end
+desc 'Run tests'
+
+task default: :test

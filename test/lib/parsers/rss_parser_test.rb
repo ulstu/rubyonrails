@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require 'minitest/pride'
-require '../../../lib/parsers/rss_parser'
+require 'nokogiri'
+require './lib/readers/file_reader'
+require './lib/parsers/rss_parser'
 
 class RssParserTest < MiniTest::Test
-  def test_parse_file
-    file = File.open('https://lenta.ru/rss')
+  def test_parse
+    file = FileReader.read('./test/fixtures/file_test.rss')
     data = RssParser.parse(file)
-    assert_equal 'https://lenta.ru/news/2020/03/05/okkosport/', data[0]['guid']
+    assert_equal 'https://lenta.ru/news/2020/03/16/ural/', data[0][:guid]
   end
 end

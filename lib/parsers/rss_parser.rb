@@ -15,4 +15,8 @@ module RssParser
     end
     result
   end
+
+  def self.can_parse?(data)
+    data.include?('<item>')
+  end
 end

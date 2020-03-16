@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require 'minitest/pride'
-require '../../../lib/parsers/json_parser'
+require 'json'
+require './lib/readers/file_reader'
+require './lib/parsers/json_parser'
 
-class JsonParserTest < MiniTest
-  def test_parse_file
-    file = File.open('fixtures/file1')
+class JsonParserTest < MiniTest::Test
+  def test_parse
+    file = FileReader.read('./test/fixtures/file_test.json')
     data = JsonParser.parse(file)
-    assert_equal 'Заголовок', data[0]['titie']
+    assert_equal 'https://lenta.ru/news/2020/03/05/okkosport/', data[0][:guid]
   end
 end
