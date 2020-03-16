@@ -1,32 +1,24 @@
-require 'nokogiri'
-require 'json'
-require '/home/mishigami/Desktop/RubyROSTELE/rubyonrails/lesson4MshkiGami/converter/lib/readers/reader.rb'
+# frozen_string_literal: true
 
 # parsing from string to JSON
-class JsonParse
-  def initialize(data)
-    @data = data
+class JsonParser
+  def self.parse(data)
+    result = []
+    JSON.parse(data).each do |item|
+      result << {
+        'guid' => item['guid'],
+        'title' => item['title'],
+        'link' => item['links'],
+        'specification' => item['description'],
+        'pubDate' => item['pubDate'],
+        'enclosure' => item['enclosure'],
+        'category' => item['category']
+      }
+    end
+    result
   end
 
-def parse
-  result = []
-  puts data
-  JSON.parse(data).each do |item|
-    result << {
-      'guid' => item['guid'],
-      'title' => item['title'],
-      'links' => item['links'],
-      'description' => item['description'],
-      'pubDate' => item['pubDate'],
-      'enclosure' => item['enclosure'],
-      'category' => item['category']
-    }
+  def self.can_parse?(data)
+    data.include?('{')
   end
-  result
 end
-end
-
-# test
-# object = Reader.new("jsonik.json")
-# texts = object.read
-# puts var = JsonParse.new(texts).parse

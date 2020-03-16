@@ -1,32 +1,24 @@
-require 'nokogiri'
-require '/home/mishigami/Desktop/RubyROSTELE/rubyonrails/lesson4MshkiGami/converter/lib/readers/reader.rb'
+# frozen_string_literal: true
 
 # parse from string to Atom
-class AtomParses
-  def initialize(data)
-    @data = data
-  end
-
-  def parse
+class AtomParser
+  def self.parse(data)
     xmlfeed = Nokogiri::XML(data)
     xmlfeed.remove_namespaces!
     doc = xmlfeed.xpath('//entry')
     result = []
-      doc.each do |el|
-        result << {
+    doc.each do |el|
+      result << {
         title: el.at('title').text,
         link: el.at('link').text,
-        id: el.at('id').text,
-        updated: el.at('updated').text,
-        summary: el.at('summary').text
-                  }
-      end
+        date: el.at('updated').text,
+        specification: el.at('summary').text
+      }
+    end
     result
   end
-end
 
-# test
-#object = Reader.new("atom.xml")
-#texts = object.read
-#var = AtomParse.new(texts)
-#puts var.parse
+  def self.can_parse?(data)
+    data.include?('<feed')
+  end
+end

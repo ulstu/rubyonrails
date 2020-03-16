@@ -1,21 +1,12 @@
-require 'open-uri'
+# frozen_string_literal: true
 
-# this class read from link
+# require 'open-uri'
+
+# this class read
 class Reader
-  def initialize(input)
-    @input = input
-  end
-
-  def read
+  def self.read(input)
     data = ''
-    file_from_links = open(input)
-    file_from_links.each do |line|
-      data += line
-    end
+    open(input).each { |line| data += line }
     data
   end
 end
-
-# test
-# object = Reader.new("/home/mishigami/Desktop/test/file.txt")
-# puts test_string = object.read
