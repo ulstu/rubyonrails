@@ -24,11 +24,11 @@ module RssParser
 
   def self.channel_parse(xml_doc)
     {
-      language: xml_doc.at_css('channel language').children.to_s,
-      title: xml_doc.at_css('channel title').children.to_s,
-      description: xml_doc.at_css('channel description').children.to_s,
-      link: xml_doc.at_css('channel link').children.to_s,
-      image: xml_doc.at_css('channel image url').children.to_s
+      language: xml_doc.at_css('channel language').content.strip,
+      title: xml_doc.at_css('channel title').content.strip,
+      description: xml_doc.at_css('channel description').content.strip,
+      link: xml_doc.at_css('channel link').content.strip,
+      image: xml_doc.at_css('channel image url').content.strip
     }
   end
 
