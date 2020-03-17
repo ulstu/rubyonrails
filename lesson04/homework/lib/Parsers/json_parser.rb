@@ -1,21 +1,24 @@
 # frozen_string_literal: true
 
-require 'nokogiri'
 require 'json'
 
 # Module for parsing json format
 module JsonParser
   NEEDED_ATTRIBUTES = %w[items entry].freeze
   def self.parse(input)
-    result = []
+    items_array = []
     json = JSON.parse(input)
     JsonParser::NEEDED_ATTRIBUTES.each do |attr_name|
-      unless json[attr_name].nil?
-        json[attr_name].each do |item|
-          result.push(items_parse(item))
-        end
+      next if json[attr_name].nil?
+
+      json[attr_name].each do |item|
+        items_array.push(items_parse(item))
       end
     end
+    result = {
+      head: nil,
+      content: items_array
+    }
     result
   end
 
