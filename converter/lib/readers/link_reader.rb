@@ -8,4 +8,3 @@ module LinkReader
       data
     end
   end
-  

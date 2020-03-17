@@ -14,7 +14,7 @@ module RssConverter
       end
         result += '</rss>'
       File.open('../file', 'w') do |file|
-        file.puts result_xml
+        file.puts result
       end
     end
   end
