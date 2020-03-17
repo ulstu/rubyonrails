@@ -19,6 +19,9 @@ module JsonParser
   end
 
   def self.can_parse?(data)
-    data.include?('{')
+    JSON.parse(data)
+    true
+  rescue JSON::ParserError => e
+    false
   end
 end

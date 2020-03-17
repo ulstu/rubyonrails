@@ -9,4 +9,8 @@ module FileReader
     end
     data
   end
+
+  def self.can_read?(input)
+    File.file? input
+  end
 end

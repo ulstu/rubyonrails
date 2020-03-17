@@ -6,12 +6,7 @@ class BaseConverter
   end
 
   def convert(parsed_data)
-    if @output == 'json'
-      JsonConverter.convert(parsed_data)
-    elsif @output == 'atom'
-      AtomConverter.convert(parsed_data)
-    elsif @output == 'rss'
-      RssConverter.convert(parsed_data)
-    end
+    required_module = @output.capitalize << 'Converter'
+      Module.const_get(required_module).convert(parsed_data)
   end
 end

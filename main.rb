@@ -16,7 +16,13 @@ class Main
     data = BaseReader.read(@input)
     input_format = BaseParser.format(data)
     parsed_data = Module.const_get(input_format).parse(data)
-    convert_data = BaseConverter.new(@output)
-    convert_data.convert(parsed_data)
+    if @sort == 'asc' || @sort == 'desc'
+      sorted_data = @sort == 'asc' ? AscSorter.sort(parsed_data) : DescSorter.sort(parsed_data)
+      convert_data = BaseConverter.new(@output)
+      convert_data.convert(sorted_data)
+    elsif @sort.nil?
+      convert_data = BaseConverter.new(@output)
+      convert_data.convert(parsed_data)
+    end
   end
 end
