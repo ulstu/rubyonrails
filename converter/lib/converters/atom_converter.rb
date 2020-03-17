@@ -14,7 +14,7 @@ module AtomConverter
         result += "</entry>\n"
       end
       puts result += '</feed>'
-      File.open('../file', 'w') do |file|
+      File.open('../file.atom', 'w') do |file|
         file.puts result
       end
     end

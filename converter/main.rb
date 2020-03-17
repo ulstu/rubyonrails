@@ -11,11 +11,24 @@ class Main
     @sort = options[:sort]
   end
 
+  PARSERS = ['JsonParser', 'AtomParser', 'RssParser']
+
   def run
   puts @input
     data = LinkReader.read(@input)
-    parsed_data = RssParser.parse(data)
-    convert_data = JsonConverter.convert(parsed_data)
+
+    #parserName = ''
+   # PARSERS = ['JsonParser', 'AtomParser', 'RssParser']
+   # PARSERS.each do |parser_name|
+   #   parserName = parser_name if Module.const_get(parser_name).can_parse?(data)
+    #end
+
+    
+    str = BaseParser.named(data) 
+    parsed_data = BaseParser.parse(data, str);
+
+    convert_data = AtomConverter.convert(parsed_data)
     
   end
 end
+

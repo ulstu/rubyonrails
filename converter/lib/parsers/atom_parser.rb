@@ -18,4 +18,7 @@ module AtomParser
       end
       result
      end
+     def self.can_parse?(data)
+      Nokogiri::XML(data).errors.empty? && data.include?('</feed>')
+    end
   end

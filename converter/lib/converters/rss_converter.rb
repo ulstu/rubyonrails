@@ -13,8 +13,9 @@ module RssConverter
         result += "</item>\n"
       end
         result += '</rss>'
-      File.open('../file', 'w') do |file|
+      File.open('../file.rss', 'w') do |file|
         file.puts result
+
       end
     end
   end
