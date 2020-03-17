@@ -6,7 +6,20 @@ module RssConverter
     builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
       xml.rss('version' => '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom') do
         xml.channel do
-          input.each do |attr|
+          unless input[:head].nil?
+            xml.language_ input[:head][:language]
+            xml.title_ input[:head][:title]
+            xml.description_ input[:head][:description]
+            xml.link_ input[:head][:link]
+            xml.image do
+              unless input[:head][:image].nil?
+                xml.url_ input[:head][:image][:url]
+                xml.title_ input[:head][:image][:title]
+                xml.link_ input[:head][:image][:link]
+              end
+            end
+          end
+          input[:content].each do |attr|
             xml.item do
               xml.guid_ attr[:guid]
               xml.title_ attr[:title]
