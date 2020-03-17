@@ -29,11 +29,11 @@ module AtomParser
       title: xml_doc.at_css('feed title').content.strip,
       subtitle: xml_doc.at_css('feed subtitle').content.strip,
       updated: xml_doc.at_css('feed updated').content.strip,
-      author: [
+      author: {
         name: xml_doc.at_css('feed author name').content.strip,
         email: xml_doc.at_css('feed author email').content.strip,
         uri: xml_doc.at_css('feed author uri').content.strip
-      ],
+      },
       link: xml_doc.at_css('feed link').get_attribute('href').strip,
       icon: xml_doc.at_css('feed icon').content.strip,
       logo: xml_doc.at_css('feed logo').content.strip,

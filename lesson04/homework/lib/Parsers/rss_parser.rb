@@ -28,7 +28,11 @@ module RssParser
       title: xml_doc.at_css('channel title').content.strip,
       description: xml_doc.at_css('channel description').content.strip,
       link: xml_doc.at_css('channel link').content.strip,
-      image: xml_doc.at_css('channel image url').content.strip
+      image: {
+        url: xml_doc.at_css('channel image url').content.strip,
+        title: xml_doc.at_css('channel image title').content.strip,
+        link: xml_doc.at_css('channel image link').content.strip
+      }
     }
   end
 
