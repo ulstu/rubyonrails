@@ -4,6 +4,5 @@
 module AscSorter
   def self.sort(input)
     input.sort! { |a, b| DateTime.parse(b[:date]) <=> DateTime.parse(a[:date]) }
-    input
   end
 end
