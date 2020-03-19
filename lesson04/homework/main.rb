@@ -8,18 +8,16 @@ require_all('tests')
 module Main
   READERS = %w[LinkReader FileReader].freeze
   PARSERS = %w[AtomParser RssParser JsonParser].freeze
-  def self.run(options = {})
+  def self.program_run(options = {})
     raise 'This args are required' if options['input'].nil? || options['output'].nil?
 
     input_data = options['input']
-    reader = ''
-    Main::READERS.map do |reader_name|
-      reader = reader_name if Module.const_get(reader_name).can_read?(input_data)
+    reader = Main::READERS.find do |reader_name|
+      reader_name if Module.const_get(reader_name).can_read?(input_data)
     end
     input_string = Module.const_get(reader).read(input_data)
-    parser = ''
-    Main::PARSERS.map do |parser_name|
-      parser = parser_name if Module.const_get(parser_name).can_parse?(input_string)
+    parser = Main::PARSERS.find do |parser_name|
+      parser_name if Module.const_get(parser_name).can_parse?(input_string)
     end
     parsed_string = Module.const_get(parser).parse(input_string)
     unless options['sort'].nil?

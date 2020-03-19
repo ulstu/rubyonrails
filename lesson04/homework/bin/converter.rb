@@ -5,4 +5,4 @@ require './main.rb'
 require_all('lib/OptionsParser')
 
 options = OptionsParser.parse
-Main.run(options)
+Main.program_run(options)
