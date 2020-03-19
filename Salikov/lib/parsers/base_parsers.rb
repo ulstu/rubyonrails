@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 module BaseParsers
-  def self.format(data)
+  def self.parse(data)
     Main::PARSERS.each do |parser_name|
-      return parser_name if Module.const_get(parser_name).can_parse?(data)
+      class_name = Module.const_get(parser_name)
+      return class_name.parse(data) if class_name.can_parse?(data)
     end
   end
 end

@@ -6,6 +6,7 @@ require_all '../lib/**/*.rb'
 
 class Main
   PARSERS = %w[JsonParser RssParser AtomParser].freeze
+  CONVERTES = %w[JsonConvert RssConvert AtomConvert].freeze
 
   def initialize(options)
     @input = options[:input]
@@ -22,22 +23,9 @@ class Main
              puts 'ERROR: Not found file'
              exit
            end
+    parsed_data = BaseParsers.parse(data)
+    converted_data = BaseConverter.convert(parsed_data, @output_format)
 
-    @input_format = BaseParsers.format(data)
-    @parsed_data = @input_format.parse(data)
-    puts parsed_data[:item][0]
-    # # parsed_data = if @sort == 'asc'
-    # #                 AscSorter.sort(parsed_data)
-    # #               else
-    # #                 DescSorter.sort(parsed_data)
-    # #               end
-
-    # if @output_format == 'json'
-    #   ToJsonConvert.convert(parsed_data, input)
-    # elsif @output_format == 'atom'
-    #   ToAtomConvert.convert(parsed_data, input)
-    # elsif @output_format == 'rss'
-    #   ToRssConvert.convert(parsed_data, input)
-    # end
+    FileWriter.write(converted_data, @input)
   end
 end

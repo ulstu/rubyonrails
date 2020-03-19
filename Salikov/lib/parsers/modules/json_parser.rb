@@ -4,10 +4,13 @@ require 'json'
 
 module JsonParser
   def self.parse(data)
-    a = JSON.parse(data)
+    res = JSON.parse(data)
   end
 
   def self.can_parse?(data)
-    data.include?('\"items\"')
+    JSON.parse(data)
+    true
+  rescue JSON::ParserError => e
+    false
   end
 end
