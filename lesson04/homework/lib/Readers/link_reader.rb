@@ -9,8 +9,6 @@ module LinkReader
   end
 
   def self.can_read?(input)
-    return true if input.slice(URI.regexp(%w[http https]))
-
-    false
+    input.slice(URI.regexp(%w[http https]))
   end
 end

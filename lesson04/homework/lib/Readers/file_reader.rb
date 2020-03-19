@@ -7,8 +7,6 @@ module FileReader
   end
 
   def self.can_read?(input)
-    return true if File.file?(input)
-
-    false
+    File.file?(input) && File.readable?(input)
   end
 end
