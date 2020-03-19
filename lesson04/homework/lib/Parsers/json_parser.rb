@@ -23,9 +23,7 @@ module JsonParser
   end
 
   def self.can_parse?(input)
-    return true if input[0] == '{' && JSON.parse(input)
-
-    false
+    input[0] == '{' && JSON.parse(input)
   end
 
   def self.items_parse(item)

@@ -15,41 +15,56 @@ module RssParser
   end
 
   def self.can_parse?(input)
-    unless (input =~ /rss version/).nil?
-      xml_doc = Nokogiri::XML(input)
-      return true unless xml_doc.xpath('//channel/item').nil?
-    end
-    false
+    xml_doc = Nokogiri::XML(input)
+    input =~ /rss version/ && xml_doc.xpath('//channel/item')
   end
 
   def self.channel_parse(xml_doc)
-    {
-      language: xml_doc.at_css('channel language').content.strip,
-      title: xml_doc.at_css('channel title').content.strip,
-      description: xml_doc.at_css('channel description').content.strip,
-      link: xml_doc.at_css('channel link').content.strip,
-      image: {
-        url: xml_doc.at_css('channel image url').content.strip,
-        title: xml_doc.at_css('channel image title').content.strip,
-        link: xml_doc.at_css('channel image link').content.strip
-      }
-    }
+    result = {}
+    xml_doc.xpath('//channel').each do |ch|
+      result[:language] = ch.at_css('language').content.strip\
+       unless ch.at_css('language').nil?
+      result[:title] = ch.at_css('title').content.strip\
+       unless ch.at_css('title').nil?
+      result[:description] = ch.at_css('description').content.strip\
+       unless ch.at_css('description').nil?
+      result[:link] = ch.at_css('link').content.strip\
+       unless ch.at_css('link').nil?
+
+      next if ch.at_css('image').nil?
+
+      result[:image] = {}
+      result[:image][:url] = ch.at_css('image url').content.strip\
+       unless ch.at_css('image url').nil?
+      result[:image][:title] = ch.at_css('image title').content.strip\
+       unless ch.at_css('image title').nil?
+      result[:image][:link] = ch.at_css('image link').content.strip\
+       unless ch.at_css('image link').nil?
+    end
+    result
   end
 
   def self.items_parse(xml_doc)
     result = []
     xml_doc.xpath('//item').each do |item|
-      result.push(
-        {
-          guid: item.at_css('guid').content.strip,
-          title: item.at_css('title').content.strip,
-          link: item.at_css('link').content.strip,
-          description: item.at_css('description').content.strip,
-          date: item.at_css('pubDate').content.strip,
-          enclosure: item.at_css('enclosure').get_attribute('url').strip,
-          category: item.at_css('category').content.strip
-        }
-      )
+      items = {}
+      items[:guid] = item.at_css('guid').content.strip\
+       unless item.at_css('guid').nil?
+      items[:title] = item.at_css('title').content.strip\
+       unless item.at_css('title').nil?
+      items[:link] = item.at_css('link').content.strip\
+       unless item.at_css('link').nil?
+      items[:description] = item.at_css('description').content.strip\
+       unless item.at_css('description').nil?
+      items[:date] = item.at_css('pubDate').content.strip\
+       unless item.at_css('pubDate').nil?
+      items[:enclosure] = item.at_css('enclosure').get_attribute('url').strip\
+       unless item.at_css('enclosure').nil?
+      items[:category] = item.at_css('category').content.strip\
+       unless item.at_css('category').nil?
+
+      result.push(items)
+      items.reject!
     end
     result
   end
