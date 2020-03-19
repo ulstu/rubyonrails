@@ -11,7 +11,6 @@
 
 ### Прочитать статьи
 1. Что такое MVC-паттерн? https://ru.hexlet.io/blog/posts/chto-takoe-mvc-rasskazyvaem-prostymi-slovami, http://design-pattern.ru/patterns/mvc.html
-1. Проектирование программного обеспечения - https://prog-cpp.ru/uml-classes/
 1. UML-диаграммы классов - https://prog-cpp.ru/uml-classes/
 
-### * Попытаться пройти Getting Started по Ruby on Rails - http://rusrails.ru/getting-started-with-rails
+### Попытаться пройти Getting Started по Ruby on Rails - http://rusrails.ru/getting-started-with-rails
