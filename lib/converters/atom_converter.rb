@@ -15,9 +15,6 @@ module AtomConverter
       result_xml += "<category> #{item[:category]} </category>\n"
       result_xml += "</entry>\n"
     end
-    puts result_xml += '</feed>'
-    File.open('../test/fixtures/file1.atom', 'w') do |file|
-      file.puts result_xml
-    end
+    result_xml += '</feed>'
   end
 end

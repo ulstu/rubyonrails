@@ -14,9 +14,6 @@ module RssConverter
       result_xml += "<category> #{item[:category]} </category>\n"
       result_xml += "</item>\n"
     end
-    puts result_xml += '</rss>'
-    File.open('../test/fixtures/file1.rss', 'w') do |file|
-      file.puts result_xml
-    end
+    result_xml += '</rss>'
   end
 end

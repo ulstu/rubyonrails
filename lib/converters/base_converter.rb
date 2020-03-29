@@ -7,6 +7,6 @@ class BaseConverter
 
   def convert(parsed_data)
     required_module = @output.capitalize << 'Converter'
-      Module.const_get(required_module).convert(parsed_data)
+    Module.const_get(required_module).convert(parsed_data)
   end
 end
