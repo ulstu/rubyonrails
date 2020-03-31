@@ -19,6 +19,7 @@ class Main
       Module.const_get(parser).can_parse?(data)
     end
     parser_data = Module.const_get(parser_name).parse(data)
-    SelectionConvertor.new(@output).convert(parser_data)
+    sorted = @sort == 'asc' ? AscSorter.sort(parser_data) : DescSorter.sort(parser_data)
+    SelectionConvertor.new(@output).convert(sorted)
   end
 end
