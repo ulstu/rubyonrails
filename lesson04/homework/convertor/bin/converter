@@ -1,0 +1,15 @@
+#!/usr/local/bin/ruby
+require 'bundler/setup'
+Bundler.require
+require 'optparse'
+require_rel '../main.rb'
+
+options = {}
+OptionParser.new do |opts|
+  opts.on("--output STRING", String)
+  opts.on("--input STRING", String)
+  opts.on("--sort STRING", String)
+end.parse!(into: options)
+
+main_program = Main.new(options)
+main_program.run
